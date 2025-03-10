@@ -37,14 +37,41 @@ const teamMembers = [
   }
 ];
 
+// form
+const formElement = document.getElementById('formAddMember');
+//input form
+const nameElement = document.getElementById('input-name');
+const roleElement = document.getElementById('input-role');
+const emailElement = document.getElementById('input-email');
+const imgElement = document.getElementById('input-img');
+
+formElement.addEventListener('submit', function(event) {
+
+  event.preventDefault();
+  
+  let newObj = {
+    name: nameElement.value,
+    role: roleElement.value,
+    email: emailElement.value,
+    img: imgElement.value
+  }
+
+  teamMembers.push(newObj);
+
+  console.log(teamMembers);
+
+  addCard(nameElement.value, roleElement.value, emailElement.value, imgElement.value);
+})
+
+// card container
 const cardContainerElement = document.querySelector('.container');
 
-addCard(teamMembers);
+readArray(teamMembers);
 
 // FUNCTIONS
 
 // add card to html file
-function addCard(arrayMembers) {
+function readArray(arrayMembers) {
 
   for (let i = 0; i < arrayMembers.length; i++) {
 
@@ -54,13 +81,18 @@ function addCard(arrayMembers) {
     const userEmail = arrayMembers[i].email;
     const userImg = arrayMembers[i].img;
   
-    cardContainerElement.innerHTML += `<div class="card">
-                                          <img src="${userImg}" alt="${userName}" id="profile-img">
+    addCard(userName, userRole, userEmail, userImg);
+  }
+}
+
+function addCard(valueName, valueRole, valueEmail, valueImg) {
+
+  cardContainerElement.innerHTML += `<div class="card">
+                                          <img src="${valueImg}" alt="${valueName}" id="profile-img">
                                           <div class="side-element">
-                                            <h3 id="name">${userName}</h3>
-                                            <p id="role">${userRole}</p>
-                                            <p id="email">${userEmail}</p>
+                                            <h3 id="name">${valueName}</h3>
+                                            <p id="role">${valueRole}</p>
+                                            <p id="email">${valueEmail}</p>
                                           </div>
                                         </div>`;
-  }
 }
