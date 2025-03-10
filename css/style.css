@@ -8,3 +8,55 @@ reset
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+
+    padding: 40px;
+}
+
+/****** 
+common 
+******/
+
+/* sample card */
+.container {
+
+    display: flex;
+    width: calc((100% - 60px) / 3);
+}
+
+.container img {
+
+    width: 20%;
+    flex-shrink: 0;
+}
+
+.side-element {
+
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    flex-grow: 1;
+    line-height: 1.6;
+}
+
+.side-element h3 {
+
+    text-transform: uppercase;
+}
+
+.side-element #email {
+
+    color: #51C3DF;
+}
+
+/****** 
+main 
+******/
+
+main {
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
