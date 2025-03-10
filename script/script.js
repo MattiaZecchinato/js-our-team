@@ -36,3 +36,31 @@ const teamMembers = [
     img: "img/female3.png"
   }
 ];
+
+const cardContainerElement = document.querySelector('.container');
+
+addCard(teamMembers);
+
+// FUNCTIONS
+
+// add card to html file
+function addCard(arrayMembers) {
+
+  for (let i = 0; i < arrayMembers.length; i++) {
+
+    console.log(arrayMembers[i]);
+    const userName = arrayMembers[i].name;
+    const userRole = arrayMembers[i].role;
+    const userEmail = arrayMembers[i].email;
+    const userImg = arrayMembers[i].img;
+  
+    cardContainerElement.innerHTML += `<div class="card">
+                                          <img src="${userImg}" alt="${userName}" id="profile-img">
+                                          <div class="side-element">
+                                            <h3 id="name">${userName}</h3>
+                                            <p id="role">${userRole}</p>
+                                            <p id="email">${userEmail}</p>
+                                          </div>
+                                        </div>`;
+  }
+}
